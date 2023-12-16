@@ -11,3 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
   res.render("home");
 });
+
+app.listen(3000, () => {
+  console.log("serving on port 3000");
+});
