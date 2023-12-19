@@ -7,5 +7,23 @@
   </head>
   <body>
     <h1>wordleScore!</h1>
+
+    <div>
+      <h2>Rankings</h2>
+      <ul>
+        <% for (let player of players) { %>
+        <li>
+          <%= player.name %> - Average Score: <%= player.averageScore.toFixed(2)
+          %>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <div>
+      <a href="/new">
+        <!-- Changed button to an anchor tag with the "href" attribute -->
+        <button>Add my score</button>
+      </a>
+    </div>
   </body>
 </html>
