@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const Player = require("./models/player.js");
+const Player = require("./ models/player");
 const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbUrl, {
