@@ -56,6 +56,31 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.post("/new", async (req, res) => {
+  try {
+    const playerName = req.body.name; // Get the selected player's name from the form
+
+    // Find the player by name
+    const player = await Player.findOne({ name: playerName });
+
+    if (player) {
+      // Player exists, add the new score to the player's scores array
+      player.scores.push(parseInt(req.body.scores)); // Assuming scores are integers
+      await player.save(); // Save the updated player data
+    } else {
+      // Handle case where the player doesn't exist (optional)
+      console.log(`Player ${playerName} not found.`);
+      // You may choose to create a new player here if needed
+    }
+
+    res.redirect("/"); // Redirect back to the homepage or wherever needed after updating the score
+  } catch (err) {
+    // Handle errors appropriately
+    console.error(err);
+    res.status(500).send("Error occurred while adding score.");
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("serving on port 3000");
