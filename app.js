@@ -27,7 +27,28 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
-  res.render("home");
+  try {
+    const players = await Player.find({}).lean(); // Convert query result to plain JS objects
+
+    // Calculate average scores for each player
+    players.forEach((player) => {
+      if (player.scores.length > 0) {
+        const sum = player.scores.reduce((acc, score) => acc + score, 0);
+        player.averageScore = sum / player.scores.length;
+      } else {
+        player.averageScore = 0; // Handle case where player has no scores
+      }
+    });
+
+    // Sort players based on their average scores (from lowest to highest)
+    players.sort((a, b) => a.averageScore - b.averageScore);
+
+    // Render the page with sorted players
+    res.render("home", { players });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error occurred while fetching players.");
+  }
 });
 
 const PORT = process.env.PORT || 3000;
