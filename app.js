@@ -56,6 +56,16 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/newplayer", async (req, res) => {
+  res.render("newplayer");
+});
+
+app.post("/newplayer", async (req, res) => {
+  const player = new Player(req.body);
+  await player.save();
+  res.redirect("/");
+});
+
 app.post("/new", async (req, res) => {
   try {
     const playerName = req.body.name; // Get the selected player's name from the form
