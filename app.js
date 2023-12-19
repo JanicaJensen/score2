@@ -26,6 +26,11 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/new", async (req, res) => {
+  const players = await Player.find({});
+  res.render("new", { players });
+});
+
 app.get("/", async (req, res) => {
   try {
     const players = await Player.find({}).lean(); // Convert query result to plain JS objects

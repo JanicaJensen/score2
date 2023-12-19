@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new score</title>
+  </head>
+  <body>
+    <form action="/new" method="POST">
+      <div>
+        <label for="name">choose player:</label>
+        <select id="name" name="name">
+          <!-- Added name attribute -->
+          <% for(player of players){ %>
+          <option value="<%=player.name%>"><%= player.name %></option>
+          <!-- Dynamically generate option values -->
+          <% } %>
+        </select>
+
+        <label for="scores">How many guesses did it take you?</label>
+        <input
+          type="range"
+          id="scores"
+          name="scores"
+          min="1"
+          max="6"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output for="scores" id="textInput"></output>
+      </div>
+      <button type="submit">Add score</button>
+      <!-- Added type="submit" -->
+    </form>
+  </body>
+</html>
