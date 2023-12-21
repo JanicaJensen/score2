@@ -1,6 +1,8 @@
 <%- include('partials/head') %>
   <body>
-    <h1>Family Wordle Scoreboard</h1>
+    <h1 class="text-center">
+      Family Wordle Scoreboard
+    </h1>
 
     <div class="row col-md-12">
       <h2 class="text-center">Rankings</h2>
@@ -13,10 +15,10 @@
         <% } %>
       </ul>
     </div>
-    <div>
+    <div class="text-center">
       <a href="/new">
         <!-- Changed button to an anchor tag with the "href" attribute -->
-        <button>Add my score</button>
+        <button class="btn mt-3 btn-info">Add my score</button>
       </a>
       <a href="/newplayer">
         <button class="btn btn-warning">Add a new player</button>
