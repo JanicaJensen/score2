@@ -1,20 +1,26 @@
 <%- include('partials/head') %>
   <body>
+    <!-- Header  -->
     <h1 class="text-center">
       Family Wordle Scoreboard
     </h1>
-
+<!-- Rankings div  -->
     <div class="row col-md-12">
       <h2 class="text-center">Rankings</h2>
+      <!-- This here generates an unordered list -->
       <ul class="text-center list-group mx-3">
+        <!-- This is ejs which is taking players from the db -->
         <% for (let player of players) { %>
+          <!-- loops through the players and creates an li for each -->
         <li class="list-group-item">
+          <!-- displays player name and avg score with .00 2 digits decimal-->
           <%= player.name %> - Average Score: <%= player.averageScore.toFixed(2)
           %>
         </li>
         <% } %>
       </ul>
     </div>
+    <!-- Buttons div -->
     <div class="text-center">
       <a href="/new">
         <button class="btn mt-3 btn-info">Add my score</button>

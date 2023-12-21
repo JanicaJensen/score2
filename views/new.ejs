@@ -1,16 +1,18 @@
 <%- include('partials/head') %>
   <body class="text-center pt-5">
+    <!-- Form for adding a new score -->
     <form action="/new" method="POST">
       <div class="text-center">
+        <!-- Choose name dropdown -->
         <label for="name">choose player:</label>
         <select id="name" name="name">
-          <!-- Added name attribute -->
+        
           <% for(player of players){ %>
           <option value="<%=player.name%>"><%= player.name %></option>
-          <!-- Dynamically generate option values -->
+          
           <% } %>
         </select>
-
+        <!-- Choose score slider -->
         <label for="scores">How many guesses did it take you?</label>
         <input
           type="range"
@@ -22,8 +24,10 @@
         />
         <output for="scores" id="textInput"></output>
       </div>
+
+      <!-- Submit Button -->
       <button type="submit" class="btn mt-3 btn-info text-center">Add score</button>
-      <!-- Added type="submit" -->
+
     </form>
   </body>
 </html>

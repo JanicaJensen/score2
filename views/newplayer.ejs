@@ -1,12 +1,15 @@
 <%- include('partials/head') %>
   <body class="text-center mt-3">
+    <!-- Add a new player Form -->
     <form action="/newplayer" method="POST">
       <div>
+        <!-- input name  -->
         <label for="name">enter name:</label>
         <input type="text" name="name" id="name" />
       </div>
+      <!-- submit button -->
       <button type="submit" class="btn btn-warning mt-3">Add player</button>
-      <!-- Added type="submit" -->
+     
     </form>
   </body>
 </html>
