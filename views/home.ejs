@@ -2,11 +2,11 @@
   <body>
     <h1>Family Wordle Scoreboard</h1>
 
-    <div>
-      <h2>Rankings</h2>
-      <ul>
+    <div class="row col-md-12">
+      <h2 class="text-center">Rankings</h2>
+      <ul class="text-center list-group mx-3">
         <% for (let player of players) { %>
-        <li>
+        <li class="list-group-item">
           <%= player.name %> - Average Score: <%= player.averageScore.toFixed(2)
           %>
         </li>
@@ -19,7 +19,7 @@
         <button>Add my score</button>
       </a>
       <a href="/newplayer">
-        <button>Add a new player</button>
+        <button class="btn btn-warning">Add a new player</button>
       </a>
     </div>
   </body>

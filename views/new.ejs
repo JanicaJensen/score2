@@ -1,7 +1,7 @@
 <%- include('partials/head') %>
-  <body>
+  <body class="text-center pt-5">
     <form action="/new" method="POST">
-      <div>
+      <div class="text-center">
         <label for="name">choose player:</label>
         <select id="name" name="name">
           <!-- Added name attribute -->
@@ -22,7 +22,7 @@
         />
         <output for="scores" id="textInput"></output>
       </div>
-      <button type="submit">Add score</button>
+      <button type="submit" class="btn btn-info">Add score</button>
       <!-- Added type="submit" -->
     </form>
   </body>
